@@ -19,7 +19,7 @@ class QuizWidget extends StatelessWidget {
             title: "title",
           ),
           AnswerWidget(
-            isRight: false,
+            isRight: true,
             isSelected: true,
             title: "title",
           ),
