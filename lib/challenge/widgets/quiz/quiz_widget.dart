@@ -1,11 +1,14 @@
 import 'package:dev_quiz/challenge/widgets/answer/answer_widget.dart';
 import 'package:dev_quiz/core/core.dart';
+import 'package:dev_quiz/shared/models/question_model.dart';
 import 'package:flutter/material.dart';
 
 class QuizWidget extends StatelessWidget {
-  final String title;
+  final QuestionModel question;
 
-  QuizWidget({required this.title});
+  QuizWidget({
+    required this.question,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -13,18 +16,21 @@ class QuizWidget extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: [
-          Text(title, style: AppTextStyles.heading),
+          SizedBox(height: 30),
+          Text(
+            question.title,
+            style: AppTextStyles.heading,
+          ),
           SizedBox(height: 24),
-          AnswerWidget(
-            title: "title",
-          ),
-          AnswerWidget(
-            isRight: true,
-            isSelected: true,
-            title: "title",
-          ),
-          AnswerWidget(title: "title"),
-          AnswerWidget(title: "title"),
+          // Uso de operador de screed. Concatena a lista
+          ...question.answers
+              .map(
+                (e) => AnswerWidget(
+                  title: e.title,
+                  isRight: e.isRight,
+                ),
+              )
+              .toList(),
         ],
       ),
     );
