@@ -1,3 +1,5 @@
+import 'package:dev_quiz/challenge/challenge_page.dart';
+import 'package:dev_quiz/challenge/challenge_page.dart';
 import 'package:dev_quiz/challenge/widgets/quiz/quiz_widget.dart';
 import 'package:dev_quiz/core/core.dart';
 import 'package:dev_quiz/home/home_controller.dart';
@@ -53,17 +55,29 @@ class _HomePageState extends State<HomePage> {
               SizedBox(height: 24),
               Expanded(
                 child: GridView.count(
-                  crossAxisSpacing: 16,
-                  mainAxisSpacing: 16,
-                  crossAxisCount: 2,
-                  children: controller.quizzes!
-                      .map((e) => QuizCardWidget(
-                          title: e.title,
-                          completed:
-                              "${e.questionsAnswered}/${e.questions.length}",
-                          percent: e.questionsAnswered / e.questions.length))
-                      .toList(),
-                ),
+                    crossAxisSpacing: 16,
+                    mainAxisSpacing: 16,
+                    crossAxisCount: 2,
+                    children: controller.quizzes!
+                        .map(
+                          (e) => QuizCardWidget(
+                            title: e.title,
+                            completed:
+                                "${e.questionsAnswered}/${e.questions.length}",
+                            percent: e.questionsAnswered / e.questions.length,
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ChallengePage(
+                                      questions: e.questions,
+                                    ),
+                                  ));
+                              // print("Funciona");
+                            },
+                          ),
+                        )
+                        .toList()),
               )
             ],
           ),
