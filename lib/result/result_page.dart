@@ -3,6 +3,17 @@ import 'package:dev_quiz/core/core.dart';
 import 'package:flutter/material.dart';
 
 class ResultPage extends StatelessWidget {
+  final String title;
+  final int length;
+  final int result;
+
+  const ResultPage({
+    Key? key,
+    required this.title,
+    required this.length,
+    required this.result,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,10 +38,11 @@ class ResultPage extends StatelessWidget {
                       style: AppTextStyles.body,
                       children: [
                         TextSpan(
-                            text: 'Gerenciamento de Estado \n',
-                            style: AppTextStyles.bodyBold),
+                          text: "$title \n",
+                          style: AppTextStyles.bodyBold,
+                        ),
                         TextSpan(
-                          text: "  com '6' de '10' acertos.",
+                          text: "  com $result de $length acertos.",
                           style: AppTextStyles.body,
                         ),
                       ],
@@ -58,7 +70,7 @@ class ResultPage extends StatelessWidget {
                       Expanded(
                         child: Padding(
                           padding: EdgeInsets.symmetric(horizontal: 68),
-                          child: NextButtonWidget.purple(
+                          child: NextButtonWidget.transparent(
                               label: "Voltar ao Início",
                               onTap: () {
                                 Navigator.pop(context);
