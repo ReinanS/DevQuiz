@@ -9,6 +9,9 @@ import 'package:dev_quiz/home/widgets/level_button/level_button_widget.dart';
 import 'package:dev_quiz/home/widgets/quiz_card/quiz_card_widget.dart';
 import 'package:flutter/material.dart';
 
+// To-do:
+// Filtragem de desafio por dificuldade
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -71,6 +74,7 @@ class _HomePageState extends State<HomePage> {
                                   MaterialPageRoute(
                                     builder: (context) => ChallengePage(
                                       questions: e.questions,
+                                      title: e.title,
                                     ),
                                   ));
                               // print("Funciona");
