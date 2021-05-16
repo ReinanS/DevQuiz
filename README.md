@@ -1,6 +1,6 @@
 # DevQuiz
 
-Um aplicativo móvel sendo construído com NLW5 (um evento da (Rockeatseat)[https://app.rocketseat.com.br/]). Este aplicativo tem como objetivo construir um questionário sobre a área de programação e escrito com Flutter.
+Um aplicativo móvel sendo construído com NLW5 (um evento da Rockeatseat - https://app.rocketseat.com.br/). Este aplicativo tem como objetivo construir um questionário sobre a área de programação e escrito com Flutter.
 
 ## ⚠️ Pré-requisitos
 
