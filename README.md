@@ -10,3 +10,16 @@ Você deve ter instalado Flutter and Dart em sua máquina. Para isso, consulte o
 
 - Google Fonts
 - Share Plus
+
+## TO-DO list:
+- [ ] Página de Login 
+- [ ] Autenticação com Firebase 
+- [ ] Tema Dark e Light
+- [ ] Rotas Nomeadas
+- [ ] Página de Configuração
+- [ ] Página de Tente novamente
+- [ ] Utilização do padrão Bloc
+
+## 🎨 Design
+
+O design foi criado pela Rockeatset e pode ser encontrado em https://www.figma.com/file/R9It1jsp9U1qDJc7tUAfUW/DevQuiz-Copy?node-id=0%3A1.
