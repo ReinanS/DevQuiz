@@ -11,7 +11,8 @@ Você deve ter instalado Flutter and Dart em sua máquina. Para isso, consulte o
 - Google Fonts
 - Share Plus
 
-## TO-DO list:
+## TO-DO list: 
+- [ ] Responsividade
 - [ ] Página de Login 
 - [ ] Autenticação com Firebase 
 - [ ] Tema Dark e Light
