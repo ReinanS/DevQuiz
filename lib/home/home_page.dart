@@ -9,9 +9,6 @@ import 'package:dev_quiz/home/widgets/level_button/level_button_widget.dart';
 import 'package:dev_quiz/home/widgets/quiz_card/quiz_card_widget.dart';
 import 'package:flutter/material.dart';
 
-// To-do:
-// Filtragem de desafio por dificuldade
-
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -33,27 +30,43 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
+    int selectedIndex = 0;
+    final List categories = ['Fácil', 'Médio', 'Difícil', 'Perito'];
+
     if (controller.state == HomeState.sucess) {
       return Scaffold(
         appBar: AppBarWidget(
           user: controller.user!,
+          size: size,
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             children: <Widget>[
               SizedBox(height: 24),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    LevelButtonWidget(label: "Fácil"),
-                    LevelButtonWidget(label: "Médio"),
-                    LevelButtonWidget(label: "Difícil"),
-                    LevelButtonWidget(label: "Perito"),
-                  ],
-                ),
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 5),
+                height: 30,
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: categories.length,
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            selectedIndex = index;
+                          });
+                          print(selectedIndex);
+                        },
+                        child: Container(
+                            alignment: Alignment.center,
+                            margin: EdgeInsets.only(
+                                left: index == 0 ? 0 : 10,
+                                right: index == categories.length - 1 ? 10 : 0),
+                            child: LevelButtonWidget(label: categories[index])),
+                      );
+                    }),
               ),
               SizedBox(height: 24),
               Expanded(
