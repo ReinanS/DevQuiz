@@ -5,16 +5,19 @@ import 'package:flutter/material.dart';
 
 class AppBarWidget extends PreferredSize {
   final UserModel user;
+  final Size size;
 
-  AppBarWidget({required this.user})
-      : super(
-          preferredSize: Size.fromHeight(250),
+  AppBarWidget({
+    required this.user,
+    required this.size,
+  }) : super(
+          preferredSize: Size.fromHeight(size.height * 0.43),
           child: Container(
-            height: 250,
+            height: size.height * 0.4,
             child: Stack(
               children: <Widget>[
                 Container(
-                  height: 161,
+                  height: size.height * 0.25,
                   width: double.maxFinite,
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   decoration: BoxDecoration(gradient: AppGradients.linear),
