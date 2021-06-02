@@ -11,14 +11,16 @@ Você deve ter instalado Flutter and Dart em sua máquina. Para isso, consulte o
 - Google Fonts
 - Share Plus
 
-## TO-DO list: 
+## TO-DO list:
+
 - [ ] Responsividade
-- [ ] Página de Login 
-- [ ] Autenticação com Firebase 
+- [ ] Página de Login
+- [ ] Autenticação com Firebase
 - [ ] Tema Dark e Light
 - [ ] Rotas Nomeadas
 - [ ] Página de Configuração
 - [ ] Página de Tente novamente
+- [ ] Filtragem de desafio por dificuldade
 - [ ] Utilização do padrão Bloc
 
 ## 🎨 Design
