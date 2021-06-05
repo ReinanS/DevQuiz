@@ -13,7 +13,7 @@ Você deve ter instalado Flutter and Dart em sua máquina. Para isso, consulte o
 
 ## TO-DO list:
 
-- [ ] Responsividade
+- [x] Responsividade
 - [ ] Página de Login
 - [ ] Autenticação com Firebase
 - [ ] Tema Dark e Light
