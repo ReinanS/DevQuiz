@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                         child: Container(
                             alignment: Alignment.center,
                             margin: EdgeInsets.only(
-                                left: index == 0 ? 0 : 10,
+                                left: 10,
                                 right: index == categories.length - 1 ? 10 : 0),
                             child: LevelButtonWidget(label: categories[index])),
                       );
