@@ -5,16 +5,40 @@ import 'package:dev_quiz/shared/widgets/linear_progress_indicator_widget.dart';
 
 class QuizCardWidget extends StatelessWidget {
   final String title;
+  final String img;
   final String completed;
   final double percent;
   final VoidCallback onTap;
-  const QuizCardWidget({
-    Key? key,
+
+  QuizCardWidget({
     required this.title,
     required this.completed,
     required this.percent,
     required this.onTap,
-  }) : super(key: key);
+    required this.img,
+  }) : assert([
+          "hierarchy",
+          "data",
+          "laptop",
+          "blocks",
+          "check",
+          "error",
+          "trophy",
+          "logo",
+        ].contains(img));
+
+  final config = {
+    "hierarchy": AppImages.hierarchy,
+    "data": AppImages.data,
+    "laptop": AppImages.laptop,
+    "blocks": AppImages.blocks,
+    "check": AppImages.check,
+    "error": AppImages.error,
+    "trophy": AppImages.trophy,
+    "logo": AppImages.logo,
+  };
+
+  String get image => config[img]!;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +57,7 @@ class QuizCardWidget extends StatelessWidget {
             Container(
               height: 40,
               width: 40,
-              child: Image.asset(AppImages.blocks),
+              child: Image.asset(image),
             ),
             SizedBox(height: 8),
             Text(
