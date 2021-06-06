@@ -42,6 +42,7 @@ class ScoreCardWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text("Vamos começar", style: AppTextStyles.heading),
+                      SizedBox(height: 8),
                       Text(
                         "Complete os desafios e avance em conhecimento.",
                         style: AppTextStyles.body,
