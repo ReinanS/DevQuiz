@@ -26,7 +26,7 @@ class AppBarWidget extends PreferredSize {
                     children: <Widget>[
                       Text.rich(
                         TextSpan(
-                          text: "Olá ",
+                          text: "Olá, ",
                           style: AppTextStyles.title,
                           children: [
                             TextSpan(
@@ -37,10 +37,10 @@ class AppBarWidget extends PreferredSize {
                         ),
                       ),
                       Container(
-                        height: 58,
-                        width: 58,
+                        height: 48,
+                        width: 48,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(220),
+                          borderRadius: BorderRadius.circular(10),
                           image: DecorationImage(
                               image: NetworkImage(user.photoUrl)),
                         ),
