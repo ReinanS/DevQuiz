@@ -1,6 +1,5 @@
 import 'package:dev_quiz/challenge/challenge_page.dart';
 import 'package:dev_quiz/challenge/challenge_page.dart';
-import 'package:dev_quiz/challenge/widgets/quiz/quiz_widget.dart';
 import 'package:dev_quiz/core/core.dart';
 import 'package:dev_quiz/home/home_controller.dart';
 import 'package:dev_quiz/home/home_state.dart';
@@ -31,8 +30,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    int selectedIndex = 0;
     final List categories = ['Fácil', 'Médio', 'Difícil', 'Perito'];
+    int selectedIndex = 0;
 
     if (controller.state == HomeState.sucess) {
       return Scaffold(
@@ -62,7 +61,7 @@ class _HomePageState extends State<HomePage> {
                         child: Container(
                             alignment: Alignment.center,
                             margin: EdgeInsets.only(
-                                left: 10,
+                                left: index == 0 ? 0 : 10,
                                 right: index == categories.length - 1 ? 10 : 0),
                             child: LevelButtonWidget(label: categories[index])),
                       );
@@ -78,6 +77,7 @@ class _HomePageState extends State<HomePage> {
                         .map(
                           (e) => QuizCardWidget(
                             title: e.title,
+                            img: e.image,
                             completed:
                                 "${e.questionsAnswered}/${e.questions.length}",
                             percent: e.questionsAnswered / e.questions.length,
