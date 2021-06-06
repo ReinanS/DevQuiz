@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LevelButtonWidget extends StatelessWidget {
-  String label;
+  final String label;
 
   LevelButtonWidget({
     required this.label,
