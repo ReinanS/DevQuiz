@@ -6,20 +6,21 @@
         "level":"facil",
         "questions":[
             {
-                "title":"Qual dessas opções não é uma biblioteca de gerencimento de estados?",
+                "title":"O que o Flutter faz em sua totalidade?",
                 "answers":[
                     {
-                        "title":"Mobx"
+                        "title":"Kit de desenvolvimento de interface de usuário"
                     },
                     {
-                        "title":"Provider"
-                    },
-                    {
-                        "title":"Locale",
+                        "title":"Possibilita a criação de aplicativos compilados nativamente",
                         "isRight" :true
                     },
                     {
-                        "title":"Bloc"
+                        "title":"Acho que é uma marca de café do Himalaia"
+                    },
+                    
+                    {
+                        "title":"Possibilita a criação de desktops que são muito incríveis"
                     }
                 ]
             }
