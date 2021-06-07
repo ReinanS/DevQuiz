@@ -41,7 +41,8 @@ class AnswerWidget extends StatelessWidget {
           onTap(answer.isRight);
         },
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+          margin: EdgeInsets.only(bottom: 8),
           decoration: BoxDecoration(
             color: isSelected ? _selectedColorCardRight : AppColors.white,
             borderRadius: BorderRadius.circular(10),
