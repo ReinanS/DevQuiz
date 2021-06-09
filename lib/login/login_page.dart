@@ -24,44 +24,38 @@ class _LoginPageState extends State<LoginPage> {
               Column(
                 children: [
                   Image.asset(
-                    AppImages.logo,
+                    AppImages.colorfulLogo,
                     height: size.height * 0.3,
                     color: AppColors.purple,
                     alignment: Alignment.topLeft,
                   ),
                   SizedBox(height: size.height * 0.05),
-                  Text.rich(
-                    TextSpan(
-                        text: "Bem-vindo \n",
-                        style: AppTextStyles.heading40,
-                        children: [
-                          TextSpan(text: "ao \n"),
-                          TextSpan(text: "Dev Quiz!"),
-                        ]),
+                  Text(
+                    "Bem-vindo ao Dev Quiz!",
+                    style: AppTextStyles.heading20,
                     textAlign: TextAlign.left,
                   ),
-                  // Text(
-                  //   "Bem-vindo ao Dev Quiz!",
-                  //   style: AppTextStyles.heading40,
-                  // ),
                   SizedBox(height: size.height * 0.03),
                   SizedBox(
                     width: 250,
                     child: Text(
                       "O aplicativo que vai elevar o seu sucesso!",
                       style: AppTextStyles.body,
-                      textAlign: TextAlign.left,
+                      textAlign: TextAlign.center,
                     ),
                   ),
-                  SizedBox(height: 58),
-                  Row(
+                  SizedBox(height: size.height * 0.03),
+                  Column(
                     children: [
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 68),
-                          child: NextButtonWidget.purple(
-                              label: "Login", onTap: () {}),
-                        ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 68),
+                        child: NextButtonWidget.purple(
+                            label: "Regiter", onTap: () {}),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 68),
+                        child: NextButtonWidget.white(
+                            label: "Login", onTap: () {}),
                       ),
                     ],
                   ),
