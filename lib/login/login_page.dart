@@ -45,25 +45,39 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   SizedBox(height: size.height * 0.03),
-                  Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 68),
-                        child: NextButtonWidget.purple(
-                            label: "Regiter", onTap: () {}),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 68),
-                        child: NextButtonWidget.white(
-                            label: "Login", onTap: () {}),
-                      ),
-                    ],
+                  Container(
+                    height: size.height * 0.18,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        _button(
+                          NextButtonWidget.purple(
+                              label: "Regiter", onTap: () {}),
+                          size,
+                        ),
+                        _button(
+                          NextButtonWidget.white(label: "Login", onTap: () {}),
+                          size,
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _button(Widget child, Size size) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Row(
+        children: [
+          Expanded(child: child),
+        ],
       ),
     );
   }
