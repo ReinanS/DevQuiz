@@ -2,12 +2,12 @@ import 'package:dev_quiz/challenge/widgets/next_button/next_button_widget.dart';
 import 'package:dev_quiz/core/core.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
+class WelcomePage extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _WelcomePageState createState() => _WelcomePageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _WelcomePageState extends State<WelcomePage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -52,11 +52,11 @@ class _LoginPageState extends State<LoginPage> {
                       children: [
                         _button(
                           NextButtonWidget.purple(
-                              label: "Regiter", onTap: () {}),
+                              label: "Fazer Cadastro", onTap: () {}),
                           size,
                         ),
                         _button(
-                          NextButtonWidget.white(label: "Login", onTap: () {}),
+                          NextButtonWidget.white(label: "Entrar", onTap: () {}),
                           size,
                         ),
                       ],
@@ -72,13 +72,10 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _button(Widget child, Size size) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Row(
-        children: [
-          Expanded(child: child),
-        ],
-      ),
+    return Row(
+      children: [
+        Expanded(child: child),
+      ],
     );
   }
 }

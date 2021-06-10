@@ -1,5 +1,7 @@
 import 'package:dev_quiz/core/core.dart';
 import 'package:dev_quiz/home/home_page.dart';
+import 'package:dev_quiz/welcome/welcome_page.dart';
+import 'package:dev_quiz/right/right_page.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatelessWidget {
@@ -8,7 +10,10 @@ class SplashPage extends StatelessWidget {
     Future.delayed(Duration(seconds: 2)).then(
       (value) => Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => HomePage()),
+        MaterialPageRoute(builder: (context) {
+          // return HomePage();
+          return WelcomePage();
+        }),
       ),
     );
 
