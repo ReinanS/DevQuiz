@@ -1,5 +1,6 @@
 import 'package:dev_quiz/challenge/widgets/next_button/next_button_widget.dart';
 import 'package:dev_quiz/core/core.dart';
+import 'package:dev_quiz/login/login_page.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -56,7 +57,14 @@ class _WelcomePageState extends State<WelcomePage> {
                           size,
                         ),
                         _button(
-                          NextButtonWidget.white(label: "Entrar", onTap: () {}),
+                          NextButtonWidget.white(
+                              label: "Entrar",
+                              onTap: () {
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => LoginPage()));
+                              }),
                           size,
                         ),
                       ],
