@@ -1,3 +1,4 @@
+import 'package:dev_quiz/challenge/widgets/next_button/next_button_widget.dart';
 import 'package:dev_quiz/core/core.dart';
 import 'package:flutter/material.dart';
 
@@ -16,18 +17,82 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  SingleChildScrollView buildBody(Size deviceSize) {
-    return SingleChildScrollView(
+  Widget buildBody(Size deviceSize) {
+    return SafeArea(
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: deviceSize.width * 0.15),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            _loginImages(deviceSize),
+            _loginText(deviceSize),
+            _loginButton(deviceSize),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _loginImages(Size deviceSize) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Image.asset(
+          AppImages.colorfulLogo,
+          height: deviceSize.height * 0.3,
+        ),
+        Image.asset(
+          AppImages.blackgroundLogo,
+          height: deviceSize.height * 0.3,
+        ),
+      ],
+    );
+  }
+
+  Widget _loginText(Size deviceSize) {
+    return Align(
+      alignment: Alignment.centerLeft,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(
-            AppImages.colorfulLogo,
-            height: deviceSize.height * 0.3,
+          Text.rich(TextSpan(
+            text: "Bem-vindo \n",
+            style: AppTextStyles.heading30,
+            children: [
+              TextSpan(
+                text: "ao \n",
+                style: AppTextStyles.heading30,
+              ),
+              TextSpan(
+                text: "Dev Quiz!",
+                style: AppTextStyles.heading30,
+              )
+            ],
+          )),
+          Container(
+            margin: EdgeInsets.only(top: 21),
+            child: Text(
+              "O aplicativo que vai \nelevar o seu sucesso!",
+              style: AppTextStyles.body,
+            ),
           ),
         ],
       ),
     );
+  }
+
+  Widget _loginButton(Size deviceSize) {
+    return Row(
+      children: [
+        Expanded(
+          child: NextButtonWidget.purple(label: "Login", onTap: _loginSign),
+        )
+      ],
+    );
+  }
+
+  Function _loginSign() {
+    return () {};
   }
 }
