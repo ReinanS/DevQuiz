@@ -16,11 +16,10 @@ Você deve ter instalado Flutter and Dart em sua máquina. Para isso, consulte o
 - [x] Responsividade
 - [x] Consumo do Json para exibir ícones dos desafios
 - [x] Página de Welcome
-- [ ] Página de Login
+- [x] Página de Login
 - [ ] Página de Configuração
-- [ ] Rotas Nomeadas
 - [ ] Tema Dark e Light
-- [ ] Página de Tente novamente
+- [ ] Rotas Nomeadas
 - [ ] Página Subscribe
 - [ ] Autenticação com Firebase
 - [ ] Filtragem de desafio por dificuldade
