@@ -9,11 +9,13 @@ class AppTheme {
     scaffoldBackgroundColor: AppColors.white,
     primaryColor: AppColors.black,
     brightness: Brightness.light,
+    unselectedWidgetColor: AppColors.black,
   );
 
   static final ThemeData darkTheme = ThemeData(
     scaffoldBackgroundColor: Colors.black,
     primaryColor: AppColors.white,
     brightness: Brightness.dark,
+    unselectedWidgetColor: AppColors.white,
   );
 }
