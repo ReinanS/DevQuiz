@@ -1,3 +1,4 @@
+import 'package:dev_quiz/core/app_routes.dart';
 import 'package:dev_quiz/core/core.dart';
 import 'package:dev_quiz/views/home/widgets/score_card/score_card_widget.dart';
 import 'package:dev_quiz/views/shared/models/user_model.dart';
@@ -6,10 +7,12 @@ import 'package:flutter/material.dart';
 class AppBarWidget extends PreferredSize {
   final UserModel user;
   final Size size;
+  final BuildContext context;
 
   AppBarWidget({
     required this.user,
     required this.size,
+    required this.context,
   }) : super(
           preferredSize: Size.fromHeight(size.height * 0.43),
           child: Container(
@@ -36,13 +39,19 @@ class AppBarWidget extends PreferredSize {
                           ],
                         ),
                       ),
-                      Container(
-                        height: 48,
-                        width: 48,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          image: DecorationImage(
-                              image: NetworkImage(user.photoUrl)),
+                      GestureDetector(
+                        onTap: () async {
+                          await Navigator.pushNamed(
+                              context, AppRoutes.settingsRoute);
+                        },
+                        child: Container(
+                          height: 48,
+                          width: 48,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                                image: NetworkImage(user.photoUrl)),
+                          ),
                         ),
                       )
                     ],
