@@ -11,10 +11,14 @@ class SplashPage extends StatelessWidget {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     if (prefs.containsKey("theme")) {
-      String? savedTheme = prefs.getString("theme");
+      int? savedTheme = prefs.getInt("theme");
+      SelectedTheme getTheme = SettingsController().getTheme(savedTheme);
+
       print("saved theme: $savedTheme");
+      print("Enum theme: $getTheme");
+
       Provider.of<SettingsController>(context, listen: false)
-          .changeCurrentAppTheme(theme: savedTheme);
+          .changeCurrentAppTheme(getTheme, context);
     }
   }
 
