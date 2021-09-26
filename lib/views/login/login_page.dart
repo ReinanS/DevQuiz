@@ -104,7 +104,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _loginSign() async {
-    await Navigator.of(context).pushNamed(AppRoutes.settingsRoute);
+    await Navigator.of(context).pushNamed(AppRoutes.homeRoute);
     // await Navigator.of(context).pushNamed(AppRoutes.homeRoute);
   }
 }
