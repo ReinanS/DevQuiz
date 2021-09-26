@@ -12,7 +12,6 @@ class AppWidget extends StatelessWidget {
       builder: (context, _) => MaterialApp(
         title: "DevQuiz",
         debugShowCheckedModeBanner: false,
-        // home: SettingsPage(),
         initialRoute: "/",
         onGenerateRoute: AppRouter.generateRoute,
         theme: context.watch<SettingsController>().currentAppTheme,
