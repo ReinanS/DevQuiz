@@ -58,7 +58,7 @@ class NextButtonWidget extends StatelessWidget {
           backgroundColor: MaterialStateProperty.all(backgroundColor),
           shape: MaterialStateProperty.all(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
-          side: MaterialStateProperty.all(BorderSide(color: borderColor)),
+          // side: MaterialStateProperty.all(BorderSide(color: borderColor)),
         ),
         onPressed: onTap,
         child: Text(
