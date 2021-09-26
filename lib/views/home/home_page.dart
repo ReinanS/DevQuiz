@@ -39,10 +39,12 @@ class _HomePageState extends State<HomePage> {
 
     if (controller.state == HomeState.sucess) {
       return Scaffold(
-        backgroundColor: settingsController.currentAppTheme.backgroundColor,
+        backgroundColor:
+            settingsController.currentAppTheme.scaffoldBackgroundColor,
         appBar: AppBarWidget(
           user: controller.user!,
           size: size,
+          context: context,
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
