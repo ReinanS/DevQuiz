@@ -1,7 +1,10 @@
+import 'package:dev_quiz/core/app_theme.dart';
+import 'package:dev_quiz/views/settings/settings_controller.dart';
 import 'package:dev_quiz/views/shared/widgets/linear_progress_indicator_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'package:dev_quiz/core/core.dart';
+import 'package:provider/provider.dart';
 
 class QuizCardWidget extends StatelessWidget {
   final String title;
@@ -42,13 +45,16 @@ class QuizCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SettingsController controller = Provider.of<SettingsController>(context);
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
         padding: EdgeInsets.all(16),
         decoration: BoxDecoration(
           border: Border.fromBorderSide(BorderSide(color: AppColors.border)),
-          color: AppColors.white,
+          color:
+              AppTheme.backgroundColors(controller.currentAppTheme.brightness),
           borderRadius: BorderRadius.circular(10),
         ),
         child: Column(
