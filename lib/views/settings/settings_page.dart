@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:dev_quiz/core/app_routes.dart';
 import 'package:dev_quiz/core/app_text_styles.dart';
 import 'package:dev_quiz/core/core.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -15,7 +16,13 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  SelectedTheme _opcao = SelectedTheme.Light;
+  late SelectedTheme _opcao;
+
+  @override
+  void initState() {
+    super.initState();
+    _setThemeSelected();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -144,5 +151,20 @@ class _SettingsPageState extends State<SettingsPage> {
         },
       ),
     ];
+  }
+
+  void _setThemeSelected() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    setState(() {
+      if (prefs.containsKey("theme")) {
+        int? savedTheme = prefs.getInt("theme");
+        SelectedTheme getTheme = SettingsController().getTheme(savedTheme);
+
+        this._opcao = getTheme;
+      } else {
+        this._opcao = SelectedTheme.System;
+      }
+    });
   }
 }
