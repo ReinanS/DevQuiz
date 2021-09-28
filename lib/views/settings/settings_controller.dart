@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsController {
-  ValueNotifier<ThemeData> themeNotifier =
-      ValueNotifier<ThemeData>(AppTheme.lightTheme);
-  ThemeData get currentAppTheme => themeNotifier.value;
+  final themeNotifier = ValueNotifier<ThemeData>(AppTheme.lightTheme);
   set currentAppTheme(ThemeData value) => themeNotifier.value = value;
+  ThemeData get currentAppTheme => themeNotifier.value;
 
   void changeCurrentAppTheme(SelectedTheme theme, BuildContext context) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
