@@ -3,8 +3,10 @@ import 'package:dev_quiz/views/challenge/widgets/next_button/next_button_widget.
 import 'package:dev_quiz/views/challenge/widgets/question_indicator/question_indicator_widget.dart';
 import 'package:dev_quiz/views/challenge/widgets/quiz/quiz_widget.dart';
 import 'package:dev_quiz/views/result/result_page.dart';
+import 'package:dev_quiz/views/settings/settings_controller.dart';
 import 'package:dev_quiz/views/shared/models/question_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ChallengePage extends StatefulWidget {
   final List<QuestionModel> questions;
@@ -48,7 +50,12 @@ class _ChallengePageState extends State<ChallengePage> {
 
   @override
   Widget build(BuildContext context) {
+    SettingsController settingscontroller =
+        Provider.of<SettingsController>(context);
+
     return Scaffold(
+      backgroundColor:
+          settingscontroller.currentAppTheme.scaffoldBackgroundColor,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(86),
         child: SafeArea(
