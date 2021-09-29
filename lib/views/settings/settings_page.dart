@@ -16,7 +16,7 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  late SelectedTheme _opcao;
+  SelectedTheme _opcao = SelectedTheme.Light;
 
   @override
   void initState() {
@@ -162,8 +162,6 @@ class _SettingsPageState extends State<SettingsPage> {
         SelectedTheme getTheme = SettingsController().getTheme(savedTheme);
 
         this._opcao = getTheme;
-      } else {
-        this._opcao = SelectedTheme.System;
       }
     });
   }
