@@ -68,14 +68,17 @@ class QuizCardWidget extends StatelessWidget {
             SizedBox(height: 8),
             Text(
               title,
-              style: AppTextStyles.heading15,
+              style: AppTextStyles.heading15
+                  .copyWith(color: controller.currentAppTheme.primaryColor),
             ),
             SizedBox(height: 8),
             Row(
               children: <Widget>[
                 Expanded(
                   flex: 1,
-                  child: Text(completed, style: AppTextStyles.body11),
+                  child: Text(completed,
+                      style: AppTextStyles.body11.copyWith(
+                          color: controller.currentAppTheme.primaryColor)),
                 ),
                 Expanded(
                   flex: 2,

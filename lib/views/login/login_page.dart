@@ -48,16 +48,20 @@ class _LoginPageState extends State<LoginPage> {
         Image.asset(
           AppImages.colorfulLogo,
           height: deviceSize.height * 0.3,
+          width: deviceSize.width * 0.25,
         ),
         Image.asset(
           AppImages.blackgroundLogo,
-          height: deviceSize.height * 0.3,
+          width: deviceSize.width * 0.25,
         ),
       ],
     );
   }
 
   Widget _loginText(Size deviceSize) {
+    SettingsController settingsController =
+        Provider.of<SettingsController>(context);
+
     return Align(
       alignment: Alignment.centerLeft,
       child: Column(
@@ -66,15 +70,18 @@ class _LoginPageState extends State<LoginPage> {
         children: [
           Text.rich(TextSpan(
             text: "Bem-vindo \n",
-            style: AppTextStyles.heading30,
+            style: AppTextStyles.heading30.copyWith(
+                color: settingsController.currentAppTheme.primaryColor),
             children: [
               TextSpan(
                 text: "ao \n",
-                style: AppTextStyles.heading30,
+                style: AppTextStyles.heading30.copyWith(
+                    color: settingsController.currentAppTheme.primaryColor),
               ),
               TextSpan(
                 text: "Dev Quiz!",
-                style: AppTextStyles.heading30,
+                style: AppTextStyles.heading30.copyWith(
+                    color: settingsController.currentAppTheme.primaryColor),
               )
             ],
           )),
@@ -82,7 +89,8 @@ class _LoginPageState extends State<LoginPage> {
             margin: EdgeInsets.only(top: 21),
             child: Text(
               "O aplicativo que vai \nelevar o seu sucesso!",
-              style: AppTextStyles.body,
+              style: AppTextStyles.body.copyWith(
+                  color: settingsController.currentAppTheme.primaryColor),
             ),
           ),
         ],

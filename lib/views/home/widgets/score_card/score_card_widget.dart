@@ -1,6 +1,9 @@
+import 'package:dev_quiz/core/app_theme.dart';
 import 'package:dev_quiz/core/core.dart';
 import 'package:dev_quiz/views/home/widgets/chart/chart.widget.dart';
+import 'package:dev_quiz/views/settings/settings_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ScoreCardWidget extends StatelessWidget {
   final double percent;
@@ -13,13 +16,15 @@ class ScoreCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
+    final settingsController = Provider.of<SettingsController>(context);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Container(
         height: size.height * 0.20,
         decoration: BoxDecoration(
-          color: AppColors.white,
+          color: AppTheme.backgroundColors(
+              settingsController.currentAppTheme.brightness),
           borderRadius: BorderRadius.circular(15),
         ),
         child: Padding(
@@ -41,11 +46,16 @@ class ScoreCardWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text("Vamos começar", style: AppTextStyles.heading),
+                      Text("Vamos começar",
+                          style: AppTextStyles.heading.copyWith(
+                              color: settingsController
+                                  .currentAppTheme.primaryColor)),
                       SizedBox(height: 8),
                       Text(
                         "Complete os desafios e avance em conhecimento.",
-                        style: AppTextStyles.body,
+                        style: AppTextStyles.body.copyWith(
+                            color: settingsController
+                                .currentAppTheme.primaryColor),
                       ),
                     ],
                   ),

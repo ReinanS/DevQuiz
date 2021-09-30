@@ -1,8 +1,10 @@
 import 'package:dev_quiz/core/app_text_styles.dart';
 import 'package:dev_quiz/views/challenge/widgets/answer/answer_widget.dart';
+import 'package:dev_quiz/views/settings/settings_controller.dart';
 import 'package:dev_quiz/views/shared/models/answer_model.dart';
 import 'package:dev_quiz/views/shared/models/question_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 // Tarefa extra:
 // Implementar bloqueio ao selecionar uma alternativa
@@ -28,6 +30,8 @@ class _QuizWidgetState extends State<QuizWidget> {
 
   @override
   Widget build(BuildContext context) {
+    SettingsController controller = Provider.of<SettingsController>(context);
+
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20),
       child: Column(
@@ -35,7 +39,8 @@ class _QuizWidgetState extends State<QuizWidget> {
           SizedBox(height: 30),
           Text(
             widget.question.title,
-            style: AppTextStyles.heading,
+            style: AppTextStyles.heading
+                .copyWith(color: controller.currentAppTheme.primaryColor),
           ),
           SizedBox(height: 24),
           for (int i = 0; i < widget.question.answers.length; i++)

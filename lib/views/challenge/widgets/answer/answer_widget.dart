@@ -1,6 +1,9 @@
+import 'package:dev_quiz/core/app_theme.dart';
 import 'package:dev_quiz/core/core.dart';
+import 'package:dev_quiz/views/settings/settings_controller.dart';
 import 'package:dev_quiz/views/shared/models/answer_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AnswerWidget extends StatelessWidget {
   final AnswerModel answer;
@@ -34,6 +37,8 @@ class AnswerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final settingsController = Provider.of<SettingsController>(context);
+
     return IgnorePointer(
       ignoring: disabled,
       child: GestureDetector(
@@ -44,7 +49,10 @@ class AnswerWidget extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           margin: EdgeInsets.only(bottom: 8),
           decoration: BoxDecoration(
-            color: isSelected ? _selectedColorCardRight : AppColors.white,
+            color: isSelected
+                ? _selectedColorCardRight
+                : AppTheme.backgroundColors(
+                    settingsController.currentAppTheme.brightness),
             borderRadius: BorderRadius.circular(10),
             border: Border.fromBorderSide(BorderSide(
                 color:
@@ -57,17 +65,22 @@ class AnswerWidget extends StatelessWidget {
                   child: Text(answer.title,
                       style: isSelected
                           ? _selectedTextStyleRight
-                          : AppTextStyles.body)),
+                          : AppTextStyles.body.copyWith(
+                              color: settingsController
+                                  .currentAppTheme.primaryColor))),
               Container(
                 height: 24,
                 width: 24,
                 decoration: BoxDecoration(
-                    color: isSelected ? _selectedColorRight : AppColors.white,
+                    color: isSelected
+                        ? _selectedColorRight
+                        : AppTheme.backgroundColors(
+                            settingsController.currentAppTheme.brightness),
                     borderRadius: BorderRadius.circular(500),
                     border: Border.fromBorderSide(BorderSide(
                         color: isSelected
                             ? _selectedBorderRight
-                            : AppColors.white))),
+                            : AppColors.border))),
                 child: isSelected
                     ? Icon(
                         _selectedIconRight,
