@@ -16,12 +16,12 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  SelectedTheme _opcao = SelectedTheme.Light;
+  SelectedTheme _opcao = SelectedTheme.System;
 
   @override
   void initState() {
-    super.initState();
     _setThemeSelected();
+    super.initState();
   }
 
   @override
@@ -160,7 +160,6 @@ class _SettingsPageState extends State<SettingsPage> {
       if (prefs.containsKey("theme")) {
         int? savedTheme = prefs.getInt("theme");
         SelectedTheme getTheme = SettingsController().getTheme(savedTheme);
-
         this._opcao = getTheme;
       }
     });
