@@ -1,9 +1,7 @@
 import 'package:dev_quiz/core/app_routes.dart';
 import 'package:dev_quiz/core/core.dart';
 import 'package:dev_quiz/views/challenge/widgets/next_button/next_button_widget.dart';
-import 'package:dev_quiz/views/settings/settings_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -15,12 +13,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     Size deviceSize = MediaQuery.of(context).size;
 
-    SettingsController settingsController =
-        Provider.of<SettingsController>(context);
-
     return Scaffold(
-      backgroundColor:
-          settingsController.currentAppTheme.scaffoldBackgroundColor,
       body: buildBody(deviceSize),
     );
   }
@@ -59,9 +52,6 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _loginText(Size deviceSize) {
-    SettingsController settingsController =
-        Provider.of<SettingsController>(context);
-
     return Align(
       alignment: Alignment.centerLeft,
       child: Column(
@@ -70,18 +60,18 @@ class _LoginPageState extends State<LoginPage> {
         children: [
           Text.rich(TextSpan(
             text: "Bem-vindo \n",
-            style: AppTextStyles.heading30.copyWith(
-                color: settingsController.currentAppTheme.primaryColor),
+            style: AppTextStyles.heading30
+                .copyWith(color: Theme.of(context).primaryColor),
             children: [
               TextSpan(
                 text: "ao \n",
-                style: AppTextStyles.heading30.copyWith(
-                    color: settingsController.currentAppTheme.primaryColor),
+                style: AppTextStyles.heading30
+                    .copyWith(color: Theme.of(context).primaryColor),
               ),
               TextSpan(
                 text: "Dev Quiz!",
-                style: AppTextStyles.heading30.copyWith(
-                    color: settingsController.currentAppTheme.primaryColor),
+                style: AppTextStyles.heading30
+                    .copyWith(color: Theme.of(context).primaryColor),
               )
             ],
           )),
@@ -89,8 +79,8 @@ class _LoginPageState extends State<LoginPage> {
             margin: EdgeInsets.only(top: 21),
             child: Text(
               "O aplicativo que vai \nelevar o seu sucesso!",
-              style: AppTextStyles.body.copyWith(
-                  color: settingsController.currentAppTheme.primaryColor),
+              style: AppTextStyles.body
+                  .copyWith(color: Theme.of(context).primaryColor),
             ),
           ),
         ],
@@ -113,6 +103,5 @@ class _LoginPageState extends State<LoginPage> {
 
   void _loginSign() async {
     await Navigator.of(context).pushNamed(AppRoutes.homeRoute);
-    // await Navigator.of(context).pushNamed(AppRoutes.homeRoute);
   }
 }

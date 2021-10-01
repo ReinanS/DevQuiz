@@ -37,8 +37,6 @@ class AnswerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final settingsController = Provider.of<SettingsController>(context);
-
     return IgnorePointer(
       ignoring: disabled,
       child: GestureDetector(
@@ -51,8 +49,7 @@ class AnswerWidget extends StatelessWidget {
           decoration: BoxDecoration(
             color: isSelected
                 ? _selectedColorCardRight
-                : AppTheme.backgroundColors(
-                    settingsController.currentAppTheme.brightness),
+                : AppTheme.backgroundColors(Theme.of(context).brightness),
             borderRadius: BorderRadius.circular(10),
             border: Border.fromBorderSide(BorderSide(
                 color:
@@ -66,8 +63,7 @@ class AnswerWidget extends StatelessWidget {
                       style: isSelected
                           ? _selectedTextStyleRight
                           : AppTextStyles.body.copyWith(
-                              color: settingsController
-                                  .currentAppTheme.primaryColor))),
+                              color: Theme.of(context).primaryColor))),
               Container(
                 height: 24,
                 width: 24,
@@ -75,7 +71,7 @@ class AnswerWidget extends StatelessWidget {
                     color: isSelected
                         ? _selectedColorRight
                         : AppTheme.backgroundColors(
-                            settingsController.currentAppTheme.brightness),
+                            Theme.of(context).brightness),
                     borderRadius: BorderRadius.circular(500),
                     border: Border.fromBorderSide(BorderSide(
                         color: isSelected

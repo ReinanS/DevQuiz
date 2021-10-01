@@ -16,15 +16,13 @@ class ScoreCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    final settingsController = Provider.of<SettingsController>(context);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Container(
         height: size.height * 0.20,
         decoration: BoxDecoration(
-          color: AppTheme.backgroundColors(
-              settingsController.currentAppTheme.brightness),
+          color: AppTheme.backgroundColors(Theme.of(context).brightness),
           borderRadius: BorderRadius.circular(15),
         ),
         child: Padding(
@@ -47,15 +45,13 @@ class ScoreCardWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text("Vamos começar",
-                          style: AppTextStyles.heading.copyWith(
-                              color: settingsController
-                                  .currentAppTheme.primaryColor)),
+                          style: AppTextStyles.heading
+                              .copyWith(color: Theme.of(context).primaryColor)),
                       SizedBox(height: 8),
                       Text(
                         "Complete os desafios e avance em conhecimento.",
-                        style: AppTextStyles.body.copyWith(
-                            color: settingsController
-                                .currentAppTheme.primaryColor),
+                        style: AppTextStyles.body
+                            .copyWith(color: Theme.of(context).primaryColor),
                       ),
                     ],
                   ),

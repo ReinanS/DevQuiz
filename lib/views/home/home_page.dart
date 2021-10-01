@@ -7,7 +7,6 @@ import 'package:dev_quiz/views/home/widgets/level_button/level_button_widget.dar
 import 'package:dev_quiz/views/home/widgets/quiz_card/quiz_card_widget.dart';
 import 'package:dev_quiz/views/settings/settings_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -34,13 +33,8 @@ class _HomePageState extends State<HomePage> {
     final List categories = ['Fácil', 'Médio', 'Difícil', 'Perito'];
     int selectedIndex = 0;
 
-    SettingsController settingsController =
-        Provider.of<SettingsController>(context);
-
     if (controller.state == HomeState.sucess) {
       return Scaffold(
-        backgroundColor:
-            settingsController.currentAppTheme.scaffoldBackgroundColor,
         appBar: AppBarWidget(
           user: controller.user!,
           size: size,

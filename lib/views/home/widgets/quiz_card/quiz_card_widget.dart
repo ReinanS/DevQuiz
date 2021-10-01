@@ -45,16 +45,13 @@ class QuizCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SettingsController controller = Provider.of<SettingsController>(context);
-
     return GestureDetector(
       onTap: onTap,
       child: Container(
         padding: EdgeInsets.all(16),
         decoration: BoxDecoration(
           border: Border.fromBorderSide(BorderSide(color: AppColors.border)),
-          color:
-              AppTheme.backgroundColors(controller.currentAppTheme.brightness),
+          color: AppTheme.backgroundColors(Theme.of(context).brightness),
           borderRadius: BorderRadius.circular(10),
         ),
         child: Column(
@@ -69,7 +66,7 @@ class QuizCardWidget extends StatelessWidget {
             Text(
               title,
               style: AppTextStyles.heading15
-                  .copyWith(color: controller.currentAppTheme.primaryColor),
+                  .copyWith(color: Theme.of(context).primaryColor),
             ),
             SizedBox(height: 8),
             Row(
@@ -77,8 +74,8 @@ class QuizCardWidget extends StatelessWidget {
                 Expanded(
                   flex: 1,
                   child: Text(completed,
-                      style: AppTextStyles.body11.copyWith(
-                          color: controller.currentAppTheme.primaryColor)),
+                      style: AppTextStyles.body11
+                          .copyWith(color: Theme.of(context).primaryColor)),
                 ),
                 Expanded(
                   flex: 2,

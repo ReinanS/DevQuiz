@@ -30,7 +30,6 @@ class _QuizWidgetState extends State<QuizWidget> {
 
   @override
   Widget build(BuildContext context) {
-    SettingsController controller = Provider.of<SettingsController>(context);
 
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20),
@@ -40,7 +39,7 @@ class _QuizWidgetState extends State<QuizWidget> {
           Text(
             widget.question.title,
             style: AppTextStyles.heading
-                .copyWith(color: controller.currentAppTheme.primaryColor),
+                .copyWith(color: Theme.of(context).primaryColor),
           ),
           SizedBox(height: 24),
           for (int i = 0; i < widget.question.answers.length; i++)

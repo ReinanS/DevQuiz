@@ -37,8 +37,6 @@ class _ChartWidgetState extends State<ChartWidget>
 
   @override
   Widget build(BuildContext context) {
-    final settingsController = Provider.of<SettingsController>(context);
-
     return Container(
       height: 70,
       width: 70,
@@ -61,9 +59,8 @@ class _ChartWidgetState extends State<ChartWidget>
             ),
             Center(
                 child: Text("${(_animation.value * 100).toInt()}%",
-                    style: AppTextStyles.heading.copyWith(
-                        color:
-                            settingsController.currentAppTheme.primaryColor))),
+                    style: AppTextStyles.heading
+                        .copyWith(color: Theme.of(context).primaryColor))),
           ],
         ),
       ),

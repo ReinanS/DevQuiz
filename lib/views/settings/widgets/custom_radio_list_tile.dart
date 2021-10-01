@@ -24,14 +24,9 @@ class CustomRadioListTile extends StatefulWidget {
 class _CustomRadioListTileState extends State<CustomRadioListTile> {
   @override
   Widget build(BuildContext context) {
-    SettingsController settingsController =
-        Provider.of<SettingsController>(context);
-
     return RadioListTile<SelectedTheme>(
         title: Text(
           widget.title,
-          style:
-              TextStyle(color: settingsController.currentAppTheme.primaryColor),
         ),
         subtitle: widget.subtitle != null ? Text(widget.subtitle!) : null,
         value: widget.value,

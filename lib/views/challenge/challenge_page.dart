@@ -50,12 +50,7 @@ class _ChallengePageState extends State<ChallengePage> {
 
   @override
   Widget build(BuildContext context) {
-    SettingsController settingscontroller =
-        Provider.of<SettingsController>(context);
-
     return Scaffold(
-      backgroundColor:
-          settingscontroller.currentAppTheme.scaffoldBackgroundColor,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(86),
         child: SafeArea(

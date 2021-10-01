@@ -18,16 +18,13 @@ class SettingsTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SettingsController settingsController =
-        Provider.of<SettingsController>(context);
-
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           title,
           style: AppTextStyles.heading.copyWith(
-            color: settingsController.currentAppTheme.primaryColor,
+            color: Theme.of(context).primaryColor,
           ),
         ),
         Switch(

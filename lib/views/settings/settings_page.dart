@@ -27,15 +27,12 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     Size deviceSize = MediaQuery.of(context).size;
-    SettingsController controller = Provider.of<SettingsController>(context);
+    SettingsController controller = SettingsController.instance;
 
-    return Theme(
-      data: controller.currentAppTheme,
-      child: Scaffold(
-        appBar: _appBar(),
-        body: _body(deviceSize, controller),
-        bottomNavigationBar: _bottom(deviceSize),
-      ),
+    return Scaffold(
+      appBar: _appBar(),
+      body: _body(deviceSize, controller),
+      bottomNavigationBar: _bottom(deviceSize),
     );
   }
 
@@ -61,12 +58,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
               ),
             ),
-            Text(
-              "Configurações",
-              style: AppTextStyles.titleBold.copyWith(
-                color: AppColors.white,
-              ),
-            ),
+            Text("Configurações", style: AppTextStyles.titleBold),
           ],
         )));
   }
@@ -77,11 +69,8 @@ class _SettingsPageState extends State<SettingsPage> {
         horizontal: deviceSize.width * 0.1,
         vertical: deviceSize.height * 0.05,
       ),
-      child: ValueListenableBuilder(
-        valueListenable: controller.themeNotifier,
-        builder: (ctx, value, _) => Column(
-          children: _radioList(controller),
-        ),
+      child: Column(
+        children: _radioList(controller),
       ),
     );
   }
@@ -159,7 +148,8 @@ class _SettingsPageState extends State<SettingsPage> {
     setState(() {
       if (prefs.containsKey("theme")) {
         int? savedTheme = prefs.getInt("theme");
-        SelectedTheme getTheme = SettingsController().getTheme(savedTheme);
+        SelectedTheme getTheme =
+            SettingsController.instance.getTheme(savedTheme);
         this._opcao = getTheme;
       }
     });
