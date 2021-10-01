@@ -2,10 +2,9 @@ import 'package:dev_quiz/core/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class SettingsController {
-  final themeNotifier = ValueNotifier<ThemeData>(AppTheme.lightTheme);
-  set currentAppTheme(ThemeData value) => themeNotifier.value = value;
-  ThemeData get currentAppTheme => themeNotifier.value;
+class SettingsController extends ChangeNotifier {
+  static SettingsController instance = SettingsController();
+  ThemeMode currentThemeMode = ThemeMode.light;
 
   void changeCurrentAppTheme(SelectedTheme theme, BuildContext context) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -26,22 +25,27 @@ class SettingsController {
 
   void _setSystemTheme(SharedPreferences prefs, BuildContext context) {
     if (brightness(context) == Brightness.dark) {
-      currentAppTheme = AppTheme.darkTheme;
+      currentThemeMode = ThemeMode.dark;
     } else {
-      currentAppTheme = AppTheme.lightTheme;
+      currentThemeMode = ThemeMode.light;
     }
 
     prefs.setInt("theme", 0);
+    notifyListeners();
   }
 
   void _setDarkTheme(SharedPreferences prefs) {
-    currentAppTheme = AppTheme.darkTheme;
+    // currentAppTheme = AppTheme.darkTheme;
     prefs.setInt("theme", 1);
+    currentThemeMode = ThemeMode.dark;
+    notifyListeners();
   }
 
   void _setLightTheme(SharedPreferences prefs) {
-    currentAppTheme = AppTheme.lightTheme;
+    // currentAppTheme = AppTheme.lightTheme;
     prefs.setInt("theme", 2);
+    currentThemeMode = ThemeMode.light;
+    notifyListeners();
   }
 
   Brightness brightness(BuildContext context) =>
